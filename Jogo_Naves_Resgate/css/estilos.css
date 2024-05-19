@@ -1,0 +1,239 @@
+/* Definições de fonte */
+@font-face {
+    font-family: 'Titulo';
+    src: url('../fontes/ANODETONOONE.TTF');
+}
+
+/* Variáveis CSS */
+:root {
+    --primary-font: 'Arial, sans-serif';
+    --titulo-font: 'Titulo, Arial, sans-serif';
+    --background-color: rgba(255, 255, 255, 0.9);
+    --box-shadow-color: rgba(0, 0, 0, 0.5);
+    --primary-color: #603A03;
+    --button-bg-color: #28a745;
+    --button-bg-hover-color: #218838;
+    --container-width: 950px;
+    --container-height: auto;
+    --game-height: 630px;
+    --placar-width: 450px;
+    --placar-height: 50px;
+    --energia-width: 140px;
+    --energia-height: 38px;
+}
+
+/* Estilo base do corpo */
+body {
+    font-family: var(--primary-font);
+    background-image: url('../img/fundo.jpg');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Estilo do container principal */
+#container {
+    width: var(--container-width);
+    height: var(--container-height);
+    position: relative;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--box-shadow-color);
+    overflow: hidden;
+}
+
+/* Estilo do fundo do jogo */
+#fundoGame {
+    width: 100%;
+    height: var(--game-height);
+    background-image: url('../img/fundo_game.jpg');
+    background-size: cover;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+/* Estilo dos títulos */
+h1 {
+    font-family: var(--titulo-font);
+    font-size: 40px;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilo da tela inicial */
+#inicio {
+    width: 300px;
+    height: 220px;
+    background-color: #fff;
+    margin: 100px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+    text-align: center;
+}
+
+#inicio p[onclick] {
+    background-color: var(--button-bg-color);
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#inicio p[onclick]:hover {
+    background-color: var(--button-bg-hover-color);
+}
+
+/* Estilo para listas e itens de lista */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+p {
+    text-align: center;
+}
+
+/* Estilo para elementos de jogo */
+#jogador, #inimigo1, #inimigo2, #amigo, #disparo, #explosao1, #explosao2, #explosao3 {
+    position: absolute;
+}
+
+#jogador {
+    width: 256px;
+    height: 66px;
+    left: 8px;
+    top: 179px;
+    background-image: url('../img/apache.png');
+}
+
+#inimigo1 {
+    width: 256px;
+    height: 66px;
+    left: 689px;
+    top: 253px;
+    background-image: url('../img/inimigo1.png');
+}
+
+#inimigo2 {
+    width: 165px;
+    height: 70px;
+    left: 775px;
+    top: 447px;
+    background-image: url('../img/inimigo2.png');
+}
+
+#amigo {
+    width: 44px;
+    height: 51px;
+    left: 10px;
+    top: 464px;
+    background-image: url('../img/amigo.png');
+}
+
+/* Animações */
+.anima1, .anima2, .anima3, .anima4 {
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+}
+
+.anima1 {
+    background-image: url('../img/helicoptero.png');
+    animation-name: play;
+    animation-duration: 0.5s;
+}
+
+.anima2 {
+    background-image: url('../img/inimigo1.png');
+    animation-name: play;
+    animation-duration: 0.5s;
+}
+
+.anima3 {
+    background-image: url('../img/amigo.png');
+    animation-name: play2;
+    animation-duration: 0.9s;
+}
+
+.anima4 {
+    background-image: url('../img/amigo_morte.png');
+    animation-name: play3;
+    animation-duration: 0.5s;
+}
+
+@keyframes play {
+    from { background-position: 0px; }
+    to { background-position: -512px; }
+}
+
+@keyframes play2 {
+    from { background-position: 0px; }
+    to { background-position: -528px; }
+}
+
+@keyframes play3 {
+    from { background-position: 0px; }
+    to { background-position: -308px; }
+}
+
+#disparo {
+    width: 50px;
+    height: 8px;
+    background-image: url('../img/disparo.png');
+}
+
+/* Estilo do placar */
+#placar {
+    width: var(--placar-width);
+    height: var(--placar-height);
+    position: absolute;
+    left: 5px;
+    top: 590px;
+    color: #fff;
+}
+
+h2 {
+    font-family: var(--titulo-font);
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Estilo da energia */
+#energia {
+    width: var(--energia-width);
+    height: var(--energia-height);
+    position: absolute;
+    left: 750px;
+    top: 7px;
+}
+
+/* Estilo dos cabeçalhos */
+h3 {
+    font-family: var(--titulo-font);
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+/* Estilo da tela de fim de jogo */
+#fim {
+    width: 350px;
+    height: 200px;
+    background-color: #fff;
+    margin: 100px auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+}
